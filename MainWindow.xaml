@@ -20,7 +20,7 @@
                    HorizontalContentAlignment="Left" Height="30" Width="60" 
                  Margin="-3,0,0,0" Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left">
             </Label>
-            <hc:NumericUpDown VerticalAlignment="Top" HorizontalAlignment="Right" 
+            <hc:NumericUpDown x:Name="SigmaValue" VerticalAlignment="Top" HorizontalAlignment="Right" 
                               Height="30" Width="89" Foreground="Black"/>
         </Grid>
         <Grid Margin="35,80" Height="100" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -28,7 +28,7 @@
                    HorizontalContentAlignment="Left" Height="30" Width="60" 
                  Margin="-3,0,0,0" Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left">
             </Label>
-            <hc:NumericUpDown VerticalAlignment="Top" HorizontalAlignment="Right" 
+            <hc:NumericUpDown x:Name="MuValue"  VerticalAlignment="Top" HorizontalAlignment="Right" 
                               Height="30" Width="89" Foreground="Black"/>
         </Grid>
         <StackPanel Height="30" Width="134" VerticalAlignment="Top" HorizontalAlignment="Left" 
@@ -38,7 +38,14 @@
                     Height="30" Width="126" Foreground="Black" 
                     FontWeight="Bold" Background="Gray"/>
         </StackPanel>
-        
+        <ListView x:Name="ListViewDisplay" Margin="24,164,659,70">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Sensor A" Width="75"/>
+                    <GridViewColumn Header="Sensor B" Width="75"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Grid Height="498" 
               Margin="194,35,366,0"
               VerticalAlignment="Top">
@@ -94,7 +101,7 @@
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
                     Margin="89,120,0,0"/>
             </Grid>
-            <ListBox Margin="191,37,5,6">
+            <ListBox x:Name="ListBoxDisplayA" Margin="191,37,5,6">
 
             </ListBox>
         </Grid>
@@ -152,16 +159,9 @@
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
                     Margin="89,120,0,0"/>
             </Grid>
-            <ListBox Margin="202,37,22,3"/>
+            <ListBox x:Name="ListBoxDisplayB" Margin="202,37,22,3"/>
         </Grid>
-        <ListView x:Name="ListViewDisplay" Margin="24,164,659,70">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Sensor A" Width="75"/>
-                    <GridViewColumn Header="Sensor B" Width="75"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        
 
 
     </Grid>

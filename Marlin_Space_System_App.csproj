@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Xceed.Wpf.Samples.SampleData">
-      <HintPath>C:\Users\satbi\Downloads\wpftoolkit-master\wpftoolkit-master\ExtendedWPFToolkitSolution\Libs\Xceed.Wpf.Samples.SampleData.dll</HintPath>
+    <Reference Include="Galileo6">
+      <HintPath>Galileo6.dll</HintPath>
     </Reference>
   </ItemGroup>
 
