@@ -6,7 +6,6 @@ E:\Diploma\Complex Data Structures\Marlin_Space_System_App\bin\Debug\net6.0-wind
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\bin\Debug\net6.0-windows\Marlin_Space_System_App.runtimeconfig.json
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\bin\Debug\net6.0-windows\Marlin_Space_System_App.dll
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\bin\Debug\net6.0-windows\Marlin_Space_System_App.pdb
-E:\Diploma\Complex Data Structures\Marlin_Space_System_App\bin\Debug\net6.0-windows\Xceed.Wpf.Samples.SampleData.dll
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\obj\Debug\net6.0-windows\MainWindow.g.cs
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\obj\Debug\net6.0-windows\Marlin_Space_System_App_MarkupCompile.lref
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\obj\Debug\net6.0-windows\MainWindow.baml
@@ -23,3 +22,4 @@ E:\Diploma\Complex Data Structures\Marlin_Space_System_App\obj\Debug\net6.0-wind
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\obj\Debug\net6.0-windows\ref\Marlin_Space_System_App.dll
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\bin\Debug\net6.0-windows\HandyControl.dll
 E:\Diploma\Complex Data Structures\Marlin_Space_System_App\obj\Debug\net6.0-windows\App.baml
+E:\Diploma\Complex Data Structures\Marlin_Space_System_App\bin\Debug\net6.0-windows\Galileo6.dll

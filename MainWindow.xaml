@@ -36,13 +36,13 @@
             <Button x:Name="LoadData" 
                     Content="Load Sensor Data" 
                     Height="30" Width="126" Foreground="Black" 
-                    FontWeight="Bold" Background="Gray"/>
+                    FontWeight="Bold" Background="Gray" Click="LoadData_Click"/>
         </StackPanel>
         <ListView x:Name="ListViewDisplay" Margin="24,164,659,70">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Sensor A" Width="75"/>
-                    <GridViewColumn Header="Sensor B" Width="75"/>
+                    <GridViewColumn Header="Sensor A" DisplayMemberBinding="{Binding Path=SensorAList}" Width="75"/>
+                    <GridViewColumn Header="Sensor B" DisplayMemberBinding="{Binding Path=SensorBList}" Width="75"/>
                 </GridView>
             </ListView.View>
         </ListView>

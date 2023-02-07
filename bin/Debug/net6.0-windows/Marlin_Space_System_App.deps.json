@@ -9,7 +9,7 @@
       "Marlin_Space_System_App/1.0.0": {
         "dependencies": {
           "HandyControl": "3.4.0",
-          "Xceed.Wpf.Samples.SampleData": "2.0.13161.5"
+          "Galileo6": "1.0.0.0"
         },
         "runtime": {
           "Marlin_Space_System_App.dll": {}
@@ -23,11 +23,11 @@
           }
         }
       },
-      "Xceed.Wpf.Samples.SampleData/2.0.13161.5": {
+      "Galileo6/1.0.0.0": {
         "runtime": {
-          "Xceed.Wpf.Samples.SampleData.dll": {
-            "assemblyVersion": "2.0.13161.5",
-            "fileVersion": "2.0.13161.5"
+          "Galileo6.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       }
@@ -46,7 +46,7 @@
       "path": "handycontrol/3.4.0",
       "hashPath": "handycontrol.3.4.0.nupkg.sha512"
     },
-    "Xceed.Wpf.Samples.SampleData/2.0.13161.5": {
+    "Galileo6/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
