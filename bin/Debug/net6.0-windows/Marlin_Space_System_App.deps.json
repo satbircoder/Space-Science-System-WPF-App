@@ -1,0 +1,55 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Marlin_Space_System_App/1.0.0": {
+        "dependencies": {
+          "HandyControl": "3.4.0",
+          "Xceed.Wpf.Samples.SampleData": "2.0.13161.5"
+        },
+        "runtime": {
+          "Marlin_Space_System_App.dll": {}
+        }
+      },
+      "HandyControl/3.4.0": {
+        "runtime": {
+          "lib/net6.0/HandyControl.dll": {
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
+          }
+        }
+      },
+      "Xceed.Wpf.Samples.SampleData/2.0.13161.5": {
+        "runtime": {
+          "Xceed.Wpf.Samples.SampleData.dll": {
+            "assemblyVersion": "2.0.13161.5",
+            "fileVersion": "2.0.13161.5"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Marlin_Space_System_App/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HandyControl/3.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MgD5lxIm23oCv3+mFWH6EARLCOmR/spFaWeb813QtUDIQeUsbGK02xm1xDQEd0UGBcba6aho1FgCtiU4q7hHDw==",
+      "path": "handycontrol/3.4.0",
+      "hashPath": "handycontrol.3.4.0.nupkg.sha512"
+    },
+    "Xceed.Wpf.Samples.SampleData/2.0.13161.5": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

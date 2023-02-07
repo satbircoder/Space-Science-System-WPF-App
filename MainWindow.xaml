@@ -1,0 +1,168 @@
+﻿<Window x:Class="Marlin_Space_System_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:Marlin_Space_System_App"
+        mc:Ignorable="d"
+       WindowStyle="None" ResizeMode="NoResize" Height="600" Width="880">
+    <Grid Height="600" Background="#0f0f2d" VerticalAlignment="Center" Margin="36,0,-6,0">
+        <Border Height="30" BorderThickness="2" BorderBrush="White" VerticalAlignment="Top">
+            <StackPanel Height="30" VerticalAlignment="Top" >
+                <TextBlock Margin="8" Height="15" Text="Marlin Space System Satellite Data Reader" 
+                   Foreground="White" FontWeight="Bold" FontFamily="Arial" VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+        <Grid Margin="35,35" Height="100" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label x:Name="LabelSigma" Content="Sigma" Foreground="White" 
+                   HorizontalContentAlignment="Left" Height="30" Width="60" 
+                 Margin="-3,0,0,0" Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left">
+            </Label>
+            <hc:NumericUpDown VerticalAlignment="Top" HorizontalAlignment="Right" 
+                              Height="30" Width="89" Foreground="Black"/>
+        </Grid>
+        <Grid Margin="35,80" Height="100" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label x:Name="LabelMu" Content="Mu" Foreground="White" 
+                   HorizontalContentAlignment="Left" Height="30" Width="60" 
+                 Margin="-3,0,0,0" Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left">
+            </Label>
+            <hc:NumericUpDown VerticalAlignment="Top" HorizontalAlignment="Right" 
+                              Height="30" Width="89" Foreground="Black"/>
+        </Grid>
+        <StackPanel Height="30" Width="134" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                    Margin="50,120,0,0">
+            <Button x:Name="LoadData" 
+                    Content="Load Sensor Data" 
+                    Height="30" Width="126" Foreground="Black" 
+                    FontWeight="Bold" Background="Gray"/>
+        </StackPanel>
+        
+        <Grid Height="498" 
+              Margin="194,35,366,0"
+              VerticalAlignment="Top">
+            <Label Content="Sensor A" FontWeight="Bold" Foreground="White" 
+                  Background="#0f0f2d" Width="100" Height="30" 
+                   VerticalAlignment="Top"></Label>
+            <Label Content="Binary Search Iterative" Foreground="White" Width="146" Height="30" 
+                  Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="16,33,0,0"></Label>
+            <Button x:Name="IterativeSearchA" Content="Search" Height="30" Foreground="Black"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,67,0,0"
+                   Background="Gray" Width="79" FontWeight="Bold"/>
+            <TextBox x:Name="IterativeTime" Text="0"  Height="20" 
+                    Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     Margin="91,69,0,0"/>
+            <Grid Margin="0,118,48,294">
+                <Label Content="Binary Search Recursive" Foreground="White" Width="146" Height="30" 
+                  Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,7,0,0"></Label>
+                <Button x:Name="RecursiveSearchA" Content="Search" Height="30" Foreground="Black"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,45,0,0"
+                   Background="Gray" Width="79" FontWeight="Bold"/>
+                <TextBox x:Name="RecursiveTime" Text="0"  Height="20" 
+                    Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     Margin="91,44,0,0"/>
+            </Grid>
+            <Grid Margin="3,233,-3,220" RenderTransformOrigin="0.52,0.662">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="27*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Search Target" 
+                      Foreground="White" Background="#0f0f2d" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                </Label>
+                <TextBox x:Name="SearchBoxA" Text="0"  Height="20" 
+                    Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     Margin="2,0,0,0" Grid.Column="1"/>
+
+            </Grid>
+            <Grid Margin="0,302,119,4">
+                <Label Content="Selection Sort" Foreground="White" Width="146" Height="30" 
+                  Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,2,0,0"></Label>
+                <Button x:Name="SelectionSortA" Content="Sort" Height="30" Foreground="Black"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,39,0,0"
+                   Background="Gray" Width="79" FontWeight="Bold"/>
+                <TextBox x:Name="SelectionSortTime" Text="0"  Height="20" 
+                    Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     Margin="88,39,0,0"/>
+                <Label Content="Insertion Sort" Foreground="White" Width="146" Height="30" 
+                  Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,79,0,0"></Label>
+                <Button x:Name="InsertionSortA" Content="Sort" Height="30" Foreground="Black"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,120,0,0"
+                   Background="Gray" Width="79" FontWeight="Bold"/>
+                <TextBox x:Name="InsertionSortTime" Text="0"  Height="20" 
+                    Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Margin="89,120,0,0"/>
+            </Grid>
+            <ListBox Margin="191,37,5,6">
+
+            </ListBox>
+        </Grid>
+        <Grid Height="498" 
+            Margin="517,38,13,0"
+            VerticalAlignment="Top">
+            <Label Content="Sensor B" FontWeight="Bold" Foreground="White" 
+                Background="#0f0f2d" Width="100" Height="30" 
+                VerticalAlignment="Top"/>
+            <Label Content="Binary Search Iterative" Foreground="White" Width="146" Height="30" 
+                Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="16,33,0,0"/>
+            <Button x:Name="IterativeSearchB" Content="Search" Height="30" Foreground="Black"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,67,0,0"
+                Background="Gray" Width="79" FontWeight="Bold"/>
+            <TextBox x:Name="IterativeTimeB" Text="0"  Height="20" 
+                Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Margin="91,69,0,0"/>
+            <Grid Margin="0,118,48,294">
+                <Label Content="Binary Search Recursive" Foreground="White" Width="146" Height="30" 
+                    Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,7,0,0"/>
+                <Button x:Name="RecursiveSearchB" Content="Search" Height="30" Foreground="Black"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,45,0,0"
+                    Background="Gray" Width="79" FontWeight="Bold"/>
+                <TextBox x:Name="RecursiveTimeB" Text="0"  Height="20" 
+                    Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Margin="91,44,0,0"/>
+            </Grid>
+            <Grid Margin="3,233,-3,220" RenderTransformOrigin="0.52,0.662">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="27*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Search Target" 
+                    Foreground="White" Background="#0f0f2d" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="SearchBoxB" Text="0"  Height="20" 
+                    Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Margin="100,0,0,0" RenderTransformOrigin="-0.125,0.655" Grid.ColumnSpan="2"/>
+
+            </Grid>
+            <Grid Margin="0,302,119,4">
+                <Label Content="Selection Sort" Foreground="White" Width="146" Height="30" 
+                    Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,2,0,0"/>
+                <Button x:Name="SelectionSortB" Content="Sort" Height="30" Foreground="Black"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,39,0,0"
+                    Background="Gray" Width="79" FontWeight="Bold"/>
+                <TextBox x:Name="SelectionSortTimeB" Text="0"  Height="20" 
+                    Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Margin="88,39,0,0"/>
+                <Label Content="Insertion Sort" Foreground="White" Width="146" Height="30" 
+                    Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,79,0,0"/>
+                <Button x:Name="InsertionSortB" Content="Sort" Height="30" Foreground="Black"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,120,0,0"
+                    Background="Gray" Width="79" FontWeight="Bold"/>
+                <TextBox x:Name="InsertionSortTimeB" Text="0"  Height="20" 
+                    Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Margin="89,120,0,0"/>
+            </Grid>
+            <ListBox Margin="202,37,22,3"/>
+        </Grid>
+        <ListView x:Name="ListViewDisplay" Margin="24,164,659,70">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Sensor A" Width="75"/>
+                    <GridViewColumn Header="Sensor B" Width="75"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+    </Grid>
+</Window>
