@@ -42,9 +42,8 @@ namespace Marlin_Space_System_App
         }
         private void ShowAllSensorData()
         {
-            int ListSize = 400;
             ListViewDisplay.Items.Clear();
-            for(int i=0; i< ListSize; i++)
+            for(int i=0; i< SensorAList.Count; i++)
             {
                 ListViewDisplay.Items.Add(new
                 {
@@ -60,6 +59,98 @@ namespace Marlin_Space_System_App
         {
             LoadDataList();
             ShowAllSensorData();
+            DisplayListBoxData(SensorAList,ListBoxDisplayA);
+            DisplayListBoxData(SensorBList,ListBoxDisplayB);
+        }
+        private int NumberOfNodes(LinkedList<double> nodeCounter)
+        {
+            return nodeCounter.Count;
+
+        }
+        private void DisplayListBoxData(LinkedList<double> list, ListBox listBox)
+        {
+            listBox.Items.Clear();
+            foreach (var loadListBox in list)
+            {
+                listBox.Items.Add(loadListBox);
+            }
+        }
+        private bool SelectionSort(LinkedList<double> unsortedLinkList)
+        {
+            bool sorted = false;
+            int min = 0;
+            int max = NumberOfNodes(unsortedLinkList);
+            for(int i =0; i < max-1; i++)
+            {
+                min = i;
+                for(int j = i+1; j < max; j++)
+                {
+                    if(unsortedLinkList.ElementAt(j).CompareTo(unsortedLinkList.ElementAt(min)) < 0)
+                    {
+                        min = j;
+                    }
+                }
+                if(min != i)
+                {
+                    LinkedListNode<double> currentMin = unsortedLinkList.Find(unsortedLinkList.ElementAt(min));
+                    LinkedListNode<double> currentI = unsortedLinkList.Find(unsortedLinkList.ElementAt(i));
+                    var temp = currentMin.Value;
+                    currentMin.Value = currentI.Value;
+                    currentI.Value = temp;
+                    sorted= true;
+                }
+            }
+            return sorted;
+        }
+        private bool InsertionSort(LinkedList<double> unsortedLinkList)
+        {
+            int max = NumberOfNodes(unsortedLinkList);
+            for(int i = 0; i < max-1; i++)
+            {
+                for(int j = i+1; j > 0; j--)
+                {
+                    if(unsortedLinkList.ElementAt(j-1).CompareTo(unsortedLinkList.ElementAt(j)) > 0)
+                    {
+                        LinkedListNode<double> current = unsortedLinkList.Find(unsortedLinkList.ElementAt(j));
+                        var temp = current.Previous.Value;
+                        current.Previous.Value = current.Value;
+                        current.Value = temp;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private void SelectionSortB_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectionSort(SensorBList))
+            {
+                DisplayListBoxData(SensorBList, ListBoxDisplayB);
+            }
+        }
+
+        private void SelectionSortA_Click(object sender, RoutedEventArgs e)
+        {
+            if(SelectionSort(SensorAList))
+            {
+                DisplayListBoxData(SensorAList,ListBoxDisplayA);
+            }
+        }
+
+        private void InsertionSortA_Click(object sender, RoutedEventArgs e)
+        {
+            if(InsertionSort(SensorAList))
+            {
+                DisplayListBoxData(SensorAList,ListBoxDisplayA);
+            }
+        }
+
+        private void InsertionSortB_Click(object sender, RoutedEventArgs e)
+        {
+            if(InsertionSort(SensorBList))
+            {
+                DisplayListBoxData(SensorBList,ListBoxDisplayB);    
+            }
         }
     }
     

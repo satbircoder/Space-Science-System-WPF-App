@@ -88,7 +88,7 @@
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,2,0,0"></Label>
                 <Button x:Name="SelectionSortA" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,39,0,0"
-                   Background="Gray" Width="79" FontWeight="Bold"/>
+                   Background="Gray" Width="79" FontWeight="Bold" Click="SelectionSortA_Click"/>
                 <TextBox x:Name="SelectionSortTime" Text="0"  Height="20" 
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
                      Margin="88,39,0,0"/>
@@ -96,12 +96,12 @@
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,79,0,0"></Label>
                 <Button x:Name="InsertionSortA" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,120,0,0"
-                   Background="Gray" Width="79" FontWeight="Bold"/>
+                   Background="Gray" Width="79" FontWeight="Bold" Click="InsertionSortA_Click"/>
                 <TextBox x:Name="InsertionSortTime" Text="0"  Height="20" 
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
                     Margin="89,120,0,0"/>
             </Grid>
-            <ListBox x:Name="ListBoxDisplayA" Margin="191,37,5,6">
+            <ListBox x:Name="ListBoxDisplayA" Margin="191,37,5,6" SelectionMode="Multiple">
 
             </ListBox>
         </Grid>
@@ -146,7 +146,7 @@
                     Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,2,0,0"/>
                 <Button x:Name="SelectionSortB" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,39,0,0"
-                    Background="Gray" Width="79" FontWeight="Bold"/>
+                    Background="Gray" Width="79" FontWeight="Bold" Click="SelectionSortB_Click"/>
                 <TextBox x:Name="SelectionSortTimeB" Text="0"  Height="20" 
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
                     Margin="88,39,0,0"/>
@@ -154,12 +154,12 @@
                     Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,79,0,0"/>
                 <Button x:Name="InsertionSortB" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,120,0,0"
-                    Background="Gray" Width="79" FontWeight="Bold"/>
+                    Background="Gray" Width="79" FontWeight="Bold" Click="InsertionSortB_Click"/>
                 <TextBox x:Name="InsertionSortTimeB" Text="0"  Height="20" 
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
                     Margin="89,120,0,0"/>
             </Grid>
-            <ListBox x:Name="ListBoxDisplayB" Margin="202,37,22,3"/>
+            <ListBox x:Name="ListBoxDisplayB" Margin="202,37,22,3" SelectionMode="Multiple"/>
         </Grid>
         
 
