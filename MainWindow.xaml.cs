@@ -1,6 +1,7 @@
 ﻿using Galileo6;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace Marlin_Space_System_App
         }
         LinkedList<double> SensorAList = new LinkedList<double>();
         LinkedList<double> SensorBList= new LinkedList<double>();
+        Stopwatch stopWatch = new Stopwatch();
         private void LoadDataList()
         {
             SensorAList.Clear();
@@ -36,8 +38,8 @@ namespace Marlin_Space_System_App
             ReadData readSensorData = new ReadData();
             for(int i = 0; i< ListSize; i++)
             {
-                SensorAList.AddLast(readSensorData.SensorA(MuValue.Value, SigmaValue.Value));
-                SensorBList.AddLast(readSensorData.SensorB(MuValue.Value, SigmaValue.Value));
+                SensorAList.AddLast(readSensorData.SensorA((double)MuValue.Value, (double)SigmaValue.Value));
+                SensorBList.AddLast(readSensorData.SensorB((double)MuValue.Value, (double)SigmaValue.Value));
             }
         }
         private void ShowAllSensorData()
@@ -51,8 +53,6 @@ namespace Marlin_Space_System_App
                     SensorBList = SensorBList.ElementAt(i).ToString()
                 });
             }
-            
-
         }
 
         private void LoadData_Click(object sender, RoutedEventArgs e)
@@ -65,7 +65,6 @@ namespace Marlin_Space_System_App
         private int NumberOfNodes(LinkedList<double> nodeCounter)
         {
             return nodeCounter.Count;
-
         }
         private void DisplayListBoxData(LinkedList<double> list, ListBox listBox)
         {
@@ -120,40 +119,130 @@ namespace Marlin_Space_System_App
             }
             return true;
         }
-
         private void SelectionSortB_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectionSort(SensorBList))
-            {
-                DisplayListBoxData(SensorBList, ListBoxDisplayB);
-            }
+            stopWatch.Reset();
+            stopWatch.Start();
+            SelectionSort(SensorBList);
+            SelectionSortTimeB.Text = stopWatch.ElapsedMilliseconds.ToString() + " miliseconds";
+            DisplayListBoxData(SensorBList, ListBoxDisplayB);
         }
-
         private void SelectionSortA_Click(object sender, RoutedEventArgs e)
         {
-            if(SelectionSort(SensorAList))
-            {
-                DisplayListBoxData(SensorAList,ListBoxDisplayA);
-            }
+            stopWatch.Reset();
+            stopWatch.Start();
+            SelectionSort(SensorAList);
+            stopWatch.Stop();
+            SelectionSortTime.Text = stopWatch.ElapsedMilliseconds.ToString() + " miliseconds";
+            DisplayListBoxData(SensorAList,ListBoxDisplayA);
         }
-
         private void InsertionSortA_Click(object sender, RoutedEventArgs e)
         {
-            if(InsertionSort(SensorAList))
-            {
-                DisplayListBoxData(SensorAList,ListBoxDisplayA);
-            }
+            stopWatch.Reset();
+            stopWatch.Start();
+            InsertionSort(SensorAList);
+            stopWatch.Stop();
+            InsertionSortTime.Text = stopWatch.ElapsedMilliseconds.ToString() + " miliseconds";
+            DisplayListBoxData(SensorAList,ListBoxDisplayA);
         }
-
         private void InsertionSortB_Click(object sender, RoutedEventArgs e)
         {
-            if(InsertionSort(SensorBList))
+            stopWatch.Reset();           
+            stopWatch.Start();
+            InsertionSort(SensorBList);
+            stopWatch.Stop();
+            InsertionSortTimeB.Text =  stopWatch.ElapsedMilliseconds.ToString() + " miliseconds";
+            DisplayListBoxData(SensorBList,ListBoxDisplayB);
+        }
+        private int BinarySearchIterative(LinkedList<double> list, int min, int max, int searchValue)
+        {
+            while(min <= max-1)
             {
-                DisplayListBoxData(SensorBList,ListBoxDisplayB);    
+                int middle = (min + max) / 2;
+                if(searchValue == list.ElementAt(middle))
+                {
+                    return ++middle;
+                }
+                else if(searchValue < list.ElementAt(middle))
+                {
+                    max = middle - 1;
+                }
+                else
+                {
+                    min = middle + 1;
+                }
+            }
+            return min;
+        }
+        private int BinarySearchRecursive(LinkedList<double> list, int min, int max, int searchValue)
+        {
+            if (min <= max - 1)
+            {
+                int middle = (min + max) / 2;
+                if(searchValue == list.ElementAt(middle)){
+                    return middle;
+                }
+                else if(searchValue < list.ElementAt(middle))
+                {
+                    return BinarySearchRecursive(list, 0, middle-1, searchValue);
+                }
+                else
+                {
+                    return BinarySearchRecursive(list,middle+1, max, searchValue);
+                }
+            }
+            return min;
+        }
+        private void HighlightSearchData(LinkedList<double> list, ListBox highlightList, int index)
+        {
+            highlightList.SelectedIndex = -1;
+            for(int i = index-2; i<index+3; i++)
+            {
+                highlightList.SelectedItems.Add(list.ElementAt(i));
+                highlightList.Focus();
+                highlightList.ScrollIntoView(highlightList.Items[highlightList.SelectedIndex+2]);
             }
         }
+        private void IterativeSearchA_Click(object sender, RoutedEventArgs e)
+        {
+            IterativeTime.Clear();
+            stopWatch.Reset();
+            stopWatch.Start();
+            int found = BinarySearchIterative(SensorAList, 0, NumberOfNodes(SensorAList), Int32.Parse(SearchBoxA.Text));
+            stopWatch.Stop();
+            HighlightSearchData(SensorAList, ListBoxDisplayA, found);
+            IterativeTime.Text = stopWatch.ElapsedTicks.ToString() + " Ticks";
+        }
+        private void IterativeSearchB_Click(object sender, RoutedEventArgs e)
+        {
+            IterativeTimeB.Clear();
+            stopWatch.Reset();
+            stopWatch.Start();
+            int found = BinarySearchIterative(SensorBList, 0, NumberOfNodes(SensorBList), Int32.Parse(SearchBoxB.Text));
+            stopWatch.Stop();
+            HighlightSearchData(SensorBList, ListBoxDisplayB, found);
+            IterativeTimeB.Text = stopWatch.ElapsedTicks.ToString() + " Ticks";
+        }
+        private void RecursiveSearchA_Click(object sender, RoutedEventArgs e)
+        {
+            RecursiveTime.Clear();
+            stopWatch.Reset();
+            stopWatch.Start();
+            int found = BinarySearchRecursive(SensorAList, 0, NumberOfNodes(SensorAList), Int32.Parse(SearchBoxA.Text));
+            stopWatch.Stop();
+            HighlightSearchData(SensorAList, ListBoxDisplayA, found);
+            RecursiveTime.Text = stopWatch.ElapsedTicks.ToString() + " Ticks";
+        }
+        private void RecursiveSearchB_Click(object sender, RoutedEventArgs e)
+        {
+            RecursiveTimeB.Clear();
+            stopWatch.Reset();
+            stopWatch.Start();
+            int found = BinarySearchRecursive(SensorBList, 0, NumberOfNodes(SensorBList), Int32.Parse(SearchBoxB.Text));
+            stopWatch.Stop();
+            HighlightSearchData(SensorBList, ListBoxDisplayB, found);
+            RecursiveTimeB.Text = stopWatch.ElapsedTicks.ToString() + " Ticks";
+        }
     }
-    
-
 }
 

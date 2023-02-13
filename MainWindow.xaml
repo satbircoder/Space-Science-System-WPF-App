@@ -20,15 +20,15 @@
                    HorizontalContentAlignment="Left" Height="30" Width="60" 
                  Margin="-3,0,0,0" Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left">
             </Label>
-            <hc:NumericUpDown x:Name="SigmaValue" VerticalAlignment="Top" HorizontalAlignment="Right" 
-                              Height="30" Width="89" Foreground="Black"/>
+            <hc:NumericUpDown x:Name="SigmaValue" VerticalAlignment="Top" AllowDrop="False" Minimum="10" Maximum="20" Value="10" HorizontalAlignment="Right" 
+                              Height="30" Width="89" Foreground="Black" ValueFormat=""/>
         </Grid>
         <Grid Margin="35,80" Height="100" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label x:Name="LabelMu" Content="Mu" Foreground="White" 
                    HorizontalContentAlignment="Left" Height="30" Width="60" 
                  Margin="-3,0,0,0" Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left">
             </Label>
-            <hc:NumericUpDown x:Name="MuValue"  VerticalAlignment="Top" HorizontalAlignment="Right" 
+            <hc:NumericUpDown x:Name="MuValue"  VerticalAlignment="Top" Minimum="35" Maximum="75" Value="50" HorizontalAlignment="Right" 
                               Height="30" Width="89" Foreground="Black"/>
         </Grid>
         <StackPanel Height="30" Width="134" VerticalAlignment="Top" HorizontalAlignment="Left" 
@@ -56,19 +56,19 @@
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="16,33,0,0"></Label>
             <Button x:Name="IterativeSearchA" Content="Search" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,67,0,0"
-                   Background="Gray" Width="79" FontWeight="Bold"/>
+                   Background="Gray" Width="79" FontWeight="Bold" Click="IterativeSearchA_Click"/>
             <TextBox x:Name="IterativeTime" Text="0"  Height="20" 
                     Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                     Margin="91,69,0,0"/>
+                     Margin="91,69,0,0" IsEnabled="False"/>
             <Grid Margin="0,118,48,294">
                 <Label Content="Binary Search Recursive" Foreground="White" Width="146" Height="30" 
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,7,0,0"></Label>
                 <Button x:Name="RecursiveSearchA" Content="Search" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,45,0,0"
-                   Background="Gray" Width="79" FontWeight="Bold"/>
+                   Background="Gray" Width="79" FontWeight="Bold" Click="RecursiveSearchA_Click"/>
                 <TextBox x:Name="RecursiveTime" Text="0"  Height="20" 
                     Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                     Margin="91,44,0,0"/>
+                     Margin="91,44,0,0" IsEnabled="False"/>
             </Grid>
             <Grid Margin="3,233,-3,220" RenderTransformOrigin="0.52,0.662">
                 <Grid.ColumnDefinitions>
@@ -83,7 +83,7 @@
                      Margin="2,0,0,0" Grid.Column="1"/>
 
             </Grid>
-            <Grid Margin="0,302,119,4">
+            <Grid Margin="0,302,103,4">
                 <Label Content="Selection Sort" Foreground="White" Width="146" Height="30" 
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,2,0,0"></Label>
                 <Button x:Name="SelectionSortA" Content="Sort" Height="30" Foreground="Black"
@@ -91,17 +91,17 @@
                    Background="Gray" Width="79" FontWeight="Bold" Click="SelectionSortA_Click"/>
                 <TextBox x:Name="SelectionSortTime" Text="0"  Height="20" 
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                     Margin="88,39,0,0"/>
+                     Margin="88,39,0,0" FontSize="10" IsEnabled="False"/>
                 <Label Content="Insertion Sort" Foreground="White" Width="146" Height="30" 
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,79,0,0"></Label>
                 <Button x:Name="InsertionSortA" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,120,0,0"
                    Background="Gray" Width="79" FontWeight="Bold" Click="InsertionSortA_Click"/>
-                <TextBox x:Name="InsertionSortTime" Text="0"  Height="20" 
+                <TextBox x:Name="InsertionSortTime" Height="20" 
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Margin="89,120,0,0"/>
+                    Margin="89,120,0,0" IsEnabled="False" FontSize="10"/>
             </Grid>
-            <ListBox x:Name="ListBoxDisplayA" Margin="191,37,5,6" SelectionMode="Multiple">
+            <ListBox x:Name="ListBoxDisplayA" Margin="195,37,1,6" SelectionMode="Multiple">
 
             </ListBox>
         </Grid>
@@ -115,19 +115,19 @@
                 Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="16,33,0,0"/>
             <Button x:Name="IterativeSearchB" Content="Search" Height="30" Foreground="Black"
                 VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,67,0,0"
-                Background="Gray" Width="79" FontWeight="Bold"/>
+                Background="Gray" Width="79" FontWeight="Bold" Click="IterativeSearchB_Click"/>
             <TextBox x:Name="IterativeTimeB" Text="0"  Height="20" 
                 Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Margin="91,69,0,0"/>
+                Margin="91,69,0,0" IsEnabled="False"/>
             <Grid Margin="0,118,48,294">
                 <Label Content="Binary Search Recursive" Foreground="White" Width="146" Height="30" 
                     Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,7,0,0"/>
                 <Button x:Name="RecursiveSearchB" Content="Search" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,45,0,0"
-                    Background="Gray" Width="79" FontWeight="Bold"/>
+                    Background="Gray" Width="79" FontWeight="Bold" Click="RecursiveSearchB_Click"/>
                 <TextBox x:Name="RecursiveTimeB" Text="0"  Height="20" 
                     Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Margin="91,44,0,0"/>
+                    Margin="91,44,0,0" IsEnabled="False"/>
             </Grid>
             <Grid Margin="3,233,-3,220" RenderTransformOrigin="0.52,0.662">
                 <Grid.ColumnDefinitions>
@@ -149,20 +149,27 @@
                     Background="Gray" Width="79" FontWeight="Bold" Click="SelectionSortB_Click"/>
                 <TextBox x:Name="SelectionSortTimeB" Text="0"  Height="20" 
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Margin="88,39,0,0"/>
+                    Margin="88,39,0,0" IsEnabled="False"/>
                 <Label Content="Insertion Sort" Foreground="White" Width="146" Height="30" 
                     Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,79,0,0"/>
                 <Button x:Name="InsertionSortB" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,120,0,0"
                     Background="Gray" Width="79" FontWeight="Bold" Click="InsertionSortB_Click"/>
                 <TextBox x:Name="InsertionSortTimeB" Text="0"  Height="20" 
-                    Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Margin="89,120,0,0"/>
+                   IsEnabled="False" Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Margin="89,120,0,0" FontSize="10"/>
             </Grid>
             <ListBox x:Name="ListBoxDisplayB" Margin="202,37,22,3" SelectionMode="Multiple"/>
         </Grid>
-        
-
+        <StatusBar Margin="8,542,12,10"/>
+        <StatusBarItem Margin="14,548,16,15">
+            <TextBlock Text="Message:" TextAlignment="Left" HorizontalAlignment="Center">
+            </TextBlock>
+        </StatusBarItem>
+        <StatusBarItem Margin="88,551,20,18">
+            <TextBlock Text="Status Message" VerticalAlignment="Center">
+            </TextBlock >   
+        </StatusBarItem>
 
     </Grid>
 </Window>
