@@ -1,11 +1,13 @@
 ﻿using Galileo6;
 using HandyControl.Controls;
+using HandyControl.Data;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,7 +37,7 @@ namespace Marlin_Space_System_App
         //The two LinkedLists of type double are to be declared as global within the “public partial class”.
         LinkedList<double> SensorAList = new LinkedList<double>();
         LinkedList<double> SensorBList= new LinkedList<double>();
-        Stopwatch stopWatch = new Stopwatch();
+        Stopwatch stopWatch = new Stopwatch();// stopwatch for time calculation 
 
         // 4.2	Copy the Galileo.DLL file into the root directory
         // of your solution folder and add the appropriate reference in the solution
@@ -46,16 +48,16 @@ namespace Marlin_Space_System_App
         // the method and must be equal to 400. The input parameters are empty, and the return type is void.
 
         #region Load Data 
-        private void LoadDataList()
+        private void LoadDataList()// This Method is filling up the data in the Both linked lists using a declared size 400 
         {
             SensorAList.Clear();
             SensorBList.Clear();
             int ListSize = 400;
-            ReadData readSensorData = new ReadData();
+            ReadData readSensorData = new ReadData();// Instance from Galileo6 Namespace to get the data 
             for(int i = 0; i< ListSize; i++)
             {
                SensorAList.AddLast(readSensorData.SensorA((double)MuValue.Value, (double)SigmaValue.Value));
-                SensorBList.AddLast(readSensorData.SensorB((double)MuValue.Value, (double)SigmaValue.Value));
+               SensorBList.AddLast(readSensorData.SensorB((double)MuValue.Value, (double)SigmaValue.Value));
             }
         }
         #endregion Load Data
@@ -66,12 +68,12 @@ namespace Marlin_Space_System_App
         //The input parameters are empty, and the return type is void.
 
         #region Show Sensors Data
-        private void ShowAllSensorData()
+        private void ShowAllSensorData()// This Method is displaying the data in listview that was filled using Galileo6
         {
             ListViewDisplay.Items.Clear();
             for(int i=0; i< SensorAList.Count; i++)
             {
-                ListViewDisplay.Items.Add(new
+                ListViewDisplay.Items.Add(new //Data has been added using display binding and these are declared in XAML  
                 {
                     SensorAList = SensorAList.ElementAt(i).ToString(),
                     SensorBList = SensorBList.ElementAt(i).ToString()
@@ -91,6 +93,7 @@ namespace Marlin_Space_System_App
             ShowAllSensorData();
             DisplayListBoxData(SensorAList,ListBoxDisplayA);
             DisplayListBoxData(SensorBList,ListBoxDisplayB);
+            StatusBar.Text = "Data has Been Loaded Successfully";
         }
         #endregion Load Button Click
 
@@ -101,16 +104,16 @@ namespace Marlin_Space_System_App
         #region Utility Methods
         private int NumberOfNodes(LinkedList<double> nodeCounter)
         {
-            return nodeCounter.Count;
+            return nodeCounter.Count;// Returning the number of nodes in the Linked list
         }
-        private void HighlightSearchData(LinkedList<double> list, ListBox highlightList, int index)
+        private void HighlightSearchData(LinkedList<double> list, ListBox highlightList, int index)// This Method is Highlighting the range of found data
         {
             highlightList.SelectedIndex = -1;
             for (int i = index - 2; i < index + 3; i++)
             {
                 highlightList.SelectedItems.Add(list.ElementAt(i));
                 highlightList.Focus();
-                highlightList.ScrollIntoView(highlightList.Items[highlightList.SelectedIndex + 2]);
+                highlightList.ScrollIntoView(highlightList.Items[highlightList.SelectedIndex + 8]);
             }
         }
         #endregion Utility Methods
@@ -122,7 +125,8 @@ namespace Marlin_Space_System_App
         //code argument is the linkedlist name and the listbox name.
 
         #region Display List Box Data
-        private void DisplayListBoxData(LinkedList<double> list, ListBox listBox)
+        private void DisplayListBoxData(LinkedList<double> list, ListBox listBox)// This Function is displaying the Data
+                                                                                 // of appropriate sensors in Appropriate List Box
         {
             listBox.Items.Clear();
             foreach (var loadListBox in list)
@@ -148,7 +152,8 @@ namespace Marlin_Space_System_App
                 min = i;
                 for(int j = i+1; j < max; j++)
                 {
-                    if(unsortedLinkList.ElementAt(j) < unsortedLinkList.ElementAt(min))
+                    if(unsortedLinkList.ElementAt(j) < unsortedLinkList.ElementAt(min))// comparing the elements found in looping through
+                                                                                       // inner loop and outer loop and performing as required. 
                     {
                         min = j;
                     }
@@ -157,7 +162,7 @@ namespace Marlin_Space_System_App
                 {
                     LinkedListNode<double> currentMin = unsortedLinkList.Find(unsortedLinkList.ElementAt(min));
                     LinkedListNode<double> currentI = unsortedLinkList.Find(unsortedLinkList.ElementAt(i));
-                    var temp = currentMin.Value;
+                    var temp = currentMin.Value;//swapping of values 
                     currentMin.Value = currentI.Value;
                     currentI.Value = temp;
                     sorted= true;
@@ -341,7 +346,52 @@ namespace Marlin_Space_System_App
             InsertionSortTimeB.Text =  stopWatch.ElapsedMilliseconds.ToString() + " miliseconds";
             DisplayListBoxData(SensorBList,ListBoxDisplayB);
         }
+
+
+
+
+
         #endregion Sort Buttons Methods
+
+        #region Input Validation
+        private void Preview_Text_Input(object sender, TextCompositionEventArgs e)// This Custom made method is
+                                                                                  // used to validate the input of
+                                                                                  // numeric up downs and search boxes
+        {
+            var regex = new Regex("[^0-9]+");// this will validate the input to numbers only 
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void SigmaValue_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Preview_Text_Input(sender, e);
+        }
+
+        private void SigmaValue_KeyDown(object sender, KeyEventArgs e)// This will disable the keyboard input in Sigma
+        {
+            e.Handled = true;
+        }
+        
+
+        private void MuValue_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Preview_Text_Input(sender, e);
+        }
+
+        private void MuValue_KeyDown(object sender, KeyEventArgs e)//This will disable the keyboard input in Mu Box
+        {
+            e.Handled= true;
+        }
+
+        private void SearchBoxA_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Preview_Text_Input(sender,e);
+        }
+
+        private void SearchBoxB_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Preview_Text_Input(sender,e);
+        }
+        #endregion Input Validation
     }
 }
 

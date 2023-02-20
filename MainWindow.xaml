@@ -21,7 +21,7 @@
                  Margin="-3,0,0,0" Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left">
             </Label>
             <hc:NumericUpDown x:Name="SigmaValue" VerticalAlignment="Top" AllowDrop="False" Minimum="10" Maximum="20" Value="10" HorizontalAlignment="Right" 
-                              Height="30" Width="89" Foreground="Black" ValueFormat=""/>
+                              Height="30" Width="89" Foreground="Black" ValueFormat="" PreviewTextInput="SigmaValue_PreviewTextInput" KeyDown="SigmaValue_KeyDown"/>
         </Grid>
         <Grid Margin="35,80" Height="100" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label x:Name="LabelMu" Content="Mu" Foreground="White" 
@@ -29,7 +29,7 @@
                  Margin="-3,0,0,0" Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left">
             </Label>
             <hc:NumericUpDown x:Name="MuValue"  VerticalAlignment="Top" Minimum="35" Maximum="75" Value="50" HorizontalAlignment="Right" 
-                              Height="30" Width="89" Foreground="Black"/>
+                              Height="30" Width="89" Foreground="Black" PreviewTextInput="MuValue_PreviewTextInput" KeyDown="MuValue_KeyDown"/>
         </Grid>
         <StackPanel Height="30" Width="134" VerticalAlignment="Top" HorizontalAlignment="Left" 
                     Margin="50,120,0,0">
@@ -80,7 +80,7 @@
                 </Label>
                 <TextBox x:Name="SearchBoxA" Text="0"  Height="20" 
                     Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                     Margin="2,0,0,0" Grid.Column="1"/>
+                     Margin="2,0,0,0" Grid.Column="1" PreviewTextInput="SearchBoxA_PreviewTextInput"/>
 
             </Grid>
             <Grid Margin="0,302,103,4">
@@ -138,7 +138,7 @@
                     Foreground="White" Background="#0f0f2d" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="SearchBoxB" Text="0"  Height="20" 
                     Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Margin="100,0,0,0" RenderTransformOrigin="-0.125,0.655" Grid.ColumnSpan="2"/>
+                    Margin="100,0,0,0" RenderTransformOrigin="-0.125,0.655" Grid.ColumnSpan="2" PreviewTextInput="SearchBoxB_PreviewTextInput"/>
 
             </Grid>
             <Grid Margin="0,302,119,4">
@@ -167,7 +167,7 @@
             </TextBlock>
         </StatusBarItem>
         <StatusBarItem Margin="88,551,20,18">
-            <TextBlock Text="Status Message" VerticalAlignment="Center">
+            <TextBlock x:Name="StatusBar" Text="Status Message" VerticalAlignment="Center" IsEnabled="False">
             </TextBlock >   
         </StatusBarItem>
 
