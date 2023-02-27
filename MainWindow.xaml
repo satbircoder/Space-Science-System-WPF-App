@@ -6,7 +6,7 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:local="clr-namespace:Marlin_Space_System_App"
         mc:Ignorable="d"
-       WindowStyle="None" ResizeMode="NoResize" Height="600" Width="880">
+       WindowStyle="None" ResizeMode="NoResize" Height="600" Width="880" MouseMove="Window_MouseMove">
     <Grid Height="600" Background="#0f0f2d" VerticalAlignment="Center" Margin="36,0,-6,0">
         <Border Height="30" BorderThickness="2" BorderBrush="White" VerticalAlignment="Top">
             <StackPanel Height="30" VerticalAlignment="Top" >
@@ -33,7 +33,7 @@
         </Grid>
         <StackPanel Height="30" Width="134" VerticalAlignment="Top" HorizontalAlignment="Left" 
                     Margin="50,120,0,0">
-            <Button x:Name="LoadData" 
+            <Button x:Name="LoadData" ToolTip="Click To Display Sensors Recorded Data" 
                     Content="Load Sensor Data" 
                     Height="30" Width="126" Foreground="Black" 
                     FontWeight="Bold" Background="Gray" Click="LoadData_Click"/>
@@ -54,7 +54,7 @@
                    VerticalAlignment="Top"></Label>
             <Label Content="Binary Search Iterative" Foreground="White" Width="146" Height="30" 
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="16,33,0,0"></Label>
-            <Button x:Name="IterativeSearchA" Content="Search" Height="30" Foreground="Black"
+            <Button x:Name="IterativeSearchA" Content="Search" ToolTip="Click To Search the Input Data" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,67,0,0"
                    Background="Gray" Width="79" FontWeight="Bold" Click="IterativeSearchA_Click"/>
             <TextBox x:Name="IterativeTime" Text="0"  Height="20" 
@@ -63,7 +63,7 @@
             <Grid Margin="0,118,48,294">
                 <Label Content="Binary Search Recursive" Foreground="White" Width="146" Height="30" 
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,7,0,0"></Label>
-                <Button x:Name="RecursiveSearchA" Content="Search" Height="30" Foreground="Black"
+                <Button x:Name="RecursiveSearchA" ToolTip="Click to Search the Data" Content="Search" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,45,0,0"
                    Background="Gray" Width="79" FontWeight="Bold" Click="RecursiveSearchA_Click"/>
                 <TextBox x:Name="RecursiveTime" Text="0"  Height="20" 
@@ -78,7 +78,7 @@
                 <Label Content="Search Target" 
                       Foreground="White" Background="#0f0f2d" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
                 </Label>
-                <TextBox x:Name="SearchBoxA" Text="0"  Height="20" 
+                <TextBox x:Name="SearchBoxA" Height="20" 
                     Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" 
                      Margin="2,0,0,0" Grid.Column="1" PreviewTextInput="SearchBoxA_PreviewTextInput"/>
 
@@ -86,7 +86,7 @@
             <Grid Margin="0,302,103,4">
                 <Label Content="Selection Sort" Foreground="White" Width="146" Height="30" 
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,2,0,0"></Label>
-                <Button x:Name="SelectionSortA" Content="Sort" Height="30" Foreground="Black"
+                <Button x:Name="SelectionSortA" ToolTip="Click To Sort Data" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,39,0,0"
                    Background="Gray" Width="79" FontWeight="Bold" Click="SelectionSortA_Click"/>
                 <TextBox x:Name="SelectionSortTime" Text="0"  Height="20" 
@@ -94,7 +94,7 @@
                      Margin="88,39,0,0" FontSize="10" IsEnabled="False"/>
                 <Label Content="Insertion Sort" Foreground="White" Width="146" Height="30" 
                   Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,79,0,0"></Label>
-                <Button x:Name="InsertionSortA" Content="Sort" Height="30" Foreground="Black"
+                <Button x:Name="InsertionSortA" ToolTip="Click to Sort Data" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,120,0,0"
                    Background="Gray" Width="79" FontWeight="Bold" Click="InsertionSortA_Click"/>
                 <TextBox x:Name="InsertionSortTime" Height="20" 
@@ -113,7 +113,7 @@
                 VerticalAlignment="Top"/>
             <Label Content="Binary Search Iterative" Foreground="White" Width="146" Height="30" 
                 Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="16,33,0,0"/>
-            <Button x:Name="IterativeSearchB" Content="Search" Height="30" Foreground="Black"
+            <Button x:Name="IterativeSearchB" ToolTip="Click To Search Data" Content="Search" Height="30" Foreground="Black"
                 VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,67,0,0"
                 Background="Gray" Width="79" FontWeight="Bold" Click="IterativeSearchB_Click"/>
             <TextBox x:Name="IterativeTimeB" Text="0"  Height="20" 
@@ -122,7 +122,7 @@
             <Grid Margin="0,118,48,294">
                 <Label Content="Binary Search Recursive" Foreground="White" Width="146" Height="30" 
                     Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,7,0,0"/>
-                <Button x:Name="RecursiveSearchB" Content="Search" Height="30" Foreground="Black"
+                <Button x:Name="RecursiveSearchB" ToolTip="Click To Search Data" Content="Search" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,45,0,0"
                     Background="Gray" Width="79" FontWeight="Bold" Click="RecursiveSearchB_Click"/>
                 <TextBox x:Name="RecursiveTimeB" Text="0"  Height="20" 
@@ -136,7 +136,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Search Target" 
                     Foreground="White" Background="#0f0f2d" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="SearchBoxB" Text="0"  Height="20" 
+                <TextBox x:Name="SearchBoxB"  Height="20"
                     Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" 
                     Margin="100,0,0,0" RenderTransformOrigin="-0.125,0.655" Grid.ColumnSpan="2" PreviewTextInput="SearchBoxB_PreviewTextInput"/>
 
@@ -144,15 +144,15 @@
             <Grid Margin="0,302,119,4">
                 <Label Content="Selection Sort" Foreground="White" Width="146" Height="30" 
                     Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,2,0,0"/>
-                <Button x:Name="SelectionSortB" Content="Sort" Height="30" Foreground="Black"
+                <Button x:Name="SelectionSortB" ToolTip="Click To Sort Data" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,39,0,0"
                     Background="Gray" Width="79" FontWeight="Bold" Click="SelectionSortB_Click"/>
-                <TextBox x:Name="SelectionSortTimeB" Text="0"  Height="20" 
+                <TextBox x:Name="SelectionSortTimeB" FontSize="10" Text="0"  Height="20" 
                     Width="86" HorizontalAlignment="Left" VerticalAlignment="Top" 
                     Margin="88,39,0,0" IsEnabled="False"/>
                 <Label Content="Insertion Sort" Foreground="White" Width="146" Height="30" 
                     Background="#0f0f2d" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,79,0,0"/>
-                <Button x:Name="InsertionSortB" Content="Sort" Height="30" Foreground="Black"
+                <Button x:Name="InsertionSortB" ToolTip="Click To Sort Data" Content="Sort" Height="30" Foreground="Black"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,120,0,0"
                     Background="Gray" Width="79" FontWeight="Bold" Click="InsertionSortB_Click"/>
                 <TextBox x:Name="InsertionSortTimeB" Text="0"  Height="20" 
